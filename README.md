@@ -26,15 +26,14 @@ I enjoy building web applications and exploring the endless possibilities of sof
 
 ### 📈 Connect with me
 
-<a href="https://www.linkedin.com/in/TON-NOM-UTILISATEUR/">
+<a href="https://www.linkedin.com/in/allan-oudin/">
   <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" height="35" />
 </a>
 
 <br />
 <br />
 
-### 📊 GitHub Activity
-![Alloudev's GitHub activity chart](https://img.shields.io/badge/Dynamic_Activity-Loading-blue?style=flat-square&logo=github)
-*(Building more projects to show detailed stats!)*
+### 🐍 Contribution Journey
+*Check out my activity below to see my daily coding progress!*
 
 </div>
