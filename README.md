@@ -21,9 +21,9 @@ I am a passionate **Web & Mobile Web Developer** with a deep love for Computer S
 ---
 
 ### 🛠️ Tech Stack
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) [![CSS](https://img.shields.io/badge/CSS-639?logo=css&logoColor=fff)](#) ![JavaScript](https://img.shields.io/badge/javascript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black) ![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white) ![SQL](https://img.shields.io/badge/sql-%234479A1.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+![HTML5](https://custom-icon-badges.demolab.com/badge/HTML5-E34F26?logo=html5&logoColor=white) ![CSS3](https://custom-icon-badges.demolab.com/badge/CSS3-1572B6?logo=css3&logoColor=white) ![JavaScript](https://custom-icon-badges.demolab.com/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black) ![PHP](https://custom-icon-badges.demolab.com/badge/PHP-777BB4?logo=php-white&logoColor=white) ![SQL](https://custom-icon-badges.demolab.com/badge/SQL-4479A1?logo=database&logoColor=white)
 
 ---
 
 ### 📈 Find Me On
-[![LinkedIn](https://custom-icon-badges.demolab.com/badge/LinkedIn-0A66C2?logo=linkedin-white&logoColor=fff)](#)(https://www.linkedin.com/in/allan-oudin-b03241388/)
+[![LinkedIn](https://custom-icon-badges.demolab.com/badge/LinkedIn-0A66C2?logo=linkedin-white&logoColor=white)](https://www.linkedin.com/in/allan-oudin-b03241388/)
