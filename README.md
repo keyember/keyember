@@ -19,16 +19,12 @@ I enjoy building web applications and exploring the endless possibilities of sof
 ---
 
 ### 🛠️ Tech Stack
-
-<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" height="35" /> <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" height="35" /> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" height="35" /> <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" height="35" /> <img src="https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=postgresql&logoColor=white" height="35" />
+![HTML5](https://custom-icon-badges.demolab.com/badge/HTML5-E34F26?logo=html5&logoColor=white) ![CSS3](https://custom-icon-badges.demolab.com/badge/CSS3-1572B6?logo=css3&logoColor=white) ![JavaScript](https://custom-icon-badges.demolab.com/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black) ![PHP](https://custom-icon-badges.demolab.com/badge/PHP-777BB4?logo=php-white&logoColor=white) ![SQL](https://custom-icon-badges.demolab.com/badge/SQL-4479A1?logo=database&logoColor=white)
 
 ---
 
 ### 📈 Connect with me
-
-<a href="https://www.linkedin.com/in/allan-oudin/">
-  <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" height="35" />
-</a>
+[![LinkedIn](https://custom-icon-badges.demolab.com/badge/LinkedIn-0A66C2?logo=linkedin-white&logoColor=white)](https://www.linkedin.com/in/allan-oudin-b03241388/)
 
 <br />
 <br />
