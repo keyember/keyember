@@ -13,7 +13,7 @@ I enjoy building web applications and exploring the endless possibilities of sof
 
 ### 🎓 Academic Projects (Training 2026)
 
-[**AO-Chifoumi**](https://github.com/Alloudev/AO-chifoumi) • [**AO-PlusOuMoins**](https://github.com/Alloudev/AO-plusOUmoins) • [**Dicegame**](https://github.com/Alloudev/AO-diceGame) 🚧
+[**Chifoumi**](https://github.com/Alloudev/AO-chifoumi) • [**PlusOuMoins**](https://github.com/Alloudev/AO-plusOUmoins) • [**Dicegame**](https://github.com/Alloudev/AO-diceGame) 🚧
 
 ---
 
@@ -29,6 +29,6 @@ I enjoy building web applications and exploring the endless possibilities of sof
 
 ### 🐍 Contribution Journey
 
-[![Alloudev's Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=Alloudev&theme=github-compact)](https://github.com/ashutosh00710/github-readme-activity-graph)
+[![Keyember's Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=keyember&theme=github-compact)](https://github.com/ashutosh00710/github-readme-activity-graph)
 
 </div>
