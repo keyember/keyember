@@ -29,6 +29,6 @@ I enjoy building web applications and exploring the endless possibilities of sof
 
 ### 🐍 Contribution Journey
 
-[![Keyember's Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=keyember&theme=github-compact)](https://github.com/ashutosh00710/github-readme-activity-graph)
+![Keyember's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=keyember&theme=dracula&bg_color=8710100&line=cc1414&point=6e0a0a&days=40)
 
 </div>
