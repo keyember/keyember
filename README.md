@@ -2,7 +2,7 @@
 
 # Hello World!
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=4479A1&center=true&vCenter=true&width=435&lines=Web+%26+Mobile+Web+Developer;Computer+Science+Enthusiast;Full-stack+Explorer" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=cc1414&center=true&vCenter=true&width=435&lines=Web+%26+Mobile+Web+Developer;Computer+Science+Enthusiast;Full-stack+Explorer" alt="Typing SVG" />
 
 ---
 
@@ -13,7 +13,17 @@ I enjoy building web applications and exploring the endless possibilities of sof
 
 ### 🎓 Academic Projects (Training 2026)
 
-[**Chifoumi**](https://github.com/Alloudev/AO-chifoumi) • [**PlusOuMoins**](https://github.com/Alloudev/AO-plusOUmoins) • [**Dicegame**](https://github.com/Alloudev/AO-diceGame) 🚧
+![DONE](https://img.shields.io/badge/✅%20DONE-1F7A3D?style=for-the-badge&logoColor=white)
+<br>
+
+[![Chifoumi](https://img.shields.io/badge/🎮%20Chifoumi-2A2A2A?style=flat&logo=github&logoColor=white)](https://github.com/Alloudev/AO-chifoumi)
+[![PlusOuMoins](https://img.shields.io/badge/🧠%20PlusOuMoins-2A2A2A?style=flat&logo=github&logoColor=white)](https://github.com/Alloudev/AO-plusOUmoins)
+<br>
+<br>
+![WIP](https://img.shields.io/badge/🚧%20WIP-B11226?style=for-the-badge&logoColor=white)
+<br>
+
+[![DiceGame](https://img.shields.io/badge/🎲%20DiceGame-2A2A2A?style=flat&logo=github&logoColor=white)](https://github.com/Alloudev/AO-diceGame)
 
 ---
 
@@ -22,7 +32,7 @@ I enjoy building web applications and exploring the endless possibilities of sof
 
 ---
 
-### 📈 Connect with me
+### 🤝 Contact
 [![LinkedIn](https://custom-icon-badges.demolab.com/badge/LinkedIn-0A66C2?logo=linkedin-white&logoColor=white)](https://www.linkedin.com/in/allan-oudin-b03241388/)
 
 ---
