@@ -1,8 +1,6 @@
-<div align="center">
-
-# Hello World!
-
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=cc1414&center=true&vCenter=true&width=435&lines=Web+%26+Mobile+Web+Developer;Computer+Science+Enthusiast;Full-stack+Explorer" alt="Typing SVG" />
+<p align="center">
+  <img src="https://raw.githubusercontent.com/keyember/assets/8fab624b7902ed0d02db110251ca07e7f03c5dc0/H1%20Keyember.svg" alt="Typing intro" />
+</p>
 
 ---
 
