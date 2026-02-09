@@ -24,7 +24,7 @@ I enjoy building web applications and exploring the endless possibilities of sof
 ![WIP](https://img.shields.io/badge/🚧%20WIP-B11226?style=for-the-badge&logoColor=white)
 <br>
 
-[![DiceGame](https://img.shields.io/badge/🎲%20DiceGame-2A2A2A?style=flat&logo=github&logoColor=white)](https://github.com/Alloudev/AO-diceGame)
+```No WIP project for the moment...```
 
 ---
 
