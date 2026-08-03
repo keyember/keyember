@@ -27,8 +27,8 @@
   --page-px: clamp(16px, 3vw, 48px);
   --font: "Inter", system-ui, sans-serif;
 
-  /* Colonne waifu plus large pour profiter de tout l'espace */
-  --faq-waifu-w: clamp(220px, 35vw, 480px);
+  /* Waifu occupe ~55% du modal, FAQ le reste */
+  --faq-waifu-w: clamp(260px, 55vw, 700px);
 }
 
 *,
@@ -471,7 +471,6 @@ button {
   border: 1px solid var(--border-hover);
   border-radius: 20px;
   box-shadow: 0 32px 100px rgba(0, 0, 0, 0.7);
-  /* Plein écran moins 24px de marge — aucun max-width pour occuper toute la largeur */
   width: calc(100vw - 24px);
   height: calc(100vh - 24px);
   overflow: hidden;
@@ -523,8 +522,9 @@ button {
   max-width: 100%;
   max-height: 100%;
   display: block;
-  filter: drop-shadow(0 -12px 40px rgba(68, 94, 180, 0.45))
-    drop-shadow(4px 0 20px rgba(68, 94, 180, 0.2));
+  /* Ombre naturelle sombre, pas de glow coloré */
+  filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.7))
+          drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
   user-select: none;
 }
 
@@ -626,7 +626,7 @@ button {
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
   :root {
-    --faq-waifu-w: clamp(180px, 30vw, 340px);
+    --faq-waifu-w: clamp(200px, 48vw, 520px);
   }
   .project-grid {
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -639,7 +639,7 @@ button {
 @media (max-width: 768px) {
   :root {
     --header-h: 64px;
-    --faq-waifu-w: 220px;
+    --faq-waifu-w: 240px;
   }
   .header-nav a {
     padding: 5px 10px;
