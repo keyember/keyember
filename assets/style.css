@@ -111,7 +111,6 @@ button {
   cursor: pointer;
 }
 
-/* Les deux images sont superposées exactement au même endroit */
 .waifu-img {
   position: absolute;
   bottom: calc(-1 * var(--waifu-overflow));
@@ -157,9 +156,7 @@ button {
   font-size: 14px;
   font-weight: 500;
   color: var(--text-muted);
-  transition:
-    background 0.15s,
-    color 0.15s;
+  transition: background 0.15s, color 0.15s;
 }
 .header-nav a:hover {
   background: var(--bg-card);
@@ -334,9 +331,7 @@ button {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transition:
-    border-color 0.2s,
-    box-shadow 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 .project-card:hover {
   border-color: var(--border-hover);
@@ -428,10 +423,7 @@ button {
   font-size: 14px;
   font-weight: 500;
   color: var(--text-muted);
-  transition:
-    background 0.15s,
-    border-color 0.2s,
-    color 0.15s;
+  transition: background 0.15s, border-color 0.2s, color 0.15s;
 }
 .link-card:hover {
   background: var(--bg-card2);
@@ -504,49 +496,47 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition:
-    background 0.15s,
-    color 0.15s;
+  transition: background 0.15s, color 0.15s;
 }
 .faq-close:hover {
   background: var(--surface2);
   color: var(--text);
 }
 
-/* Colonne GAUCHE : waifu ancrée en bas, pas de scroll, même bg */
+/* Colonne GAUCHE : waifu centrée à sa taille naturelle */
 .faq-left {
   position: relative;
   overflow: hidden;
   background: transparent;
-  /* Pas de border-right : même background continu */
 }
 .faq-waifu-wrap {
+  /* Occupe toute la colonne, centre l'image horizontalement et verticalement */
   position: absolute;
   inset: 0;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   pointer-events: none;
 }
 .faq-waifu {
-  height: 100%;
-  width: 100%;
-  object-fit: contain;
-  object-position: bottom center;
+  /* Taille naturelle de l'image, ne dépasse pas la colonne */
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
   display: block;
   filter: drop-shadow(0 -12px 40px rgba(68, 94, 180, 0.45))
     drop-shadow(4px 0 20px rgba(68, 94, 180, 0.2));
   user-select: none;
 }
 
-/* Colonne DROITE : FAQ scrollable, sans border visible */
+/* Colonne DROITE : FAQ scrollable */
 .faq-right {
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 40px 36px 36px;
   overflow-y: auto;
-  /* Pas de border-left — background unifié */
 }
 
 .faq-intro {
@@ -690,7 +680,7 @@ button {
 
   .faq-modal {
     grid-template-columns: 1fr;
-    grid-template-rows: 220px 1fr;
+    grid-template-rows: 240px 1fr;
     width: calc(100vw - 12px);
     height: calc(100vh - 12px);
     border-radius: 14px;
@@ -701,9 +691,6 @@ button {
   .faq-right {
     padding: 20px 18px 18px;
     overflow-y: auto;
-  }
-  .faq-waifu {
-    object-position: center center;
   }
 }
 
