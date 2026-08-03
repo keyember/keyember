@@ -27,7 +27,6 @@
   --page-px: clamp(16px, 3vw, 48px);
   --font: "Inter", system-ui, sans-serif;
 
-  /* Largeur colonne waifu dans le modal */
   --faq-waifu-w: clamp(180px, 28vw, 340px);
 }
 
@@ -78,6 +77,7 @@ button { cursor: pointer; font-family: var(--font); border: none; background: no
 
 /* ===== WAIFU HEADER ===== */
 .header-waifu {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -88,22 +88,35 @@ button { cursor: pointer; font-family: var(--font); border: none; background: no
   border: none;
   cursor: pointer;
 }
-.header-waifu:hover .waifu-img {
+
+/* Les deux images sont superposées exactement au même endroit */
+.waifu-img {
+  position: absolute;
+  bottom: calc(-1 * var(--waifu-overflow));
+  left: 50%;
+  transform: translateX(-50%);
+  height: calc(var(--header-h) + var(--waifu-overflow));
+  width: auto;
+  object-fit: contain;
+  object-position: bottom center;
+  user-select: none;
+  display: block;
+  transition: opacity 0.2s ease;
+}
+
+.waifu-default {
+  opacity: 1;
+  filter: drop-shadow(0 -6px 20px rgba(68, 94, 180, 0.45))
+          drop-shadow(0 4px 10px rgba(194, 195, 233, 0.15));
+}
+.waifu-hover {
+  opacity: 0;
   filter: drop-shadow(0 -6px 24px rgba(68, 94, 180, 0.75))
           drop-shadow(0 4px 12px rgba(194, 195, 233, 0.3));
 }
-.waifu-img {
-  height: calc(var(--header-h) + var(--waifu-overflow));
-  width: auto;
-  transform: translateY(var(--waifu-overflow));
-  object-fit: contain;
-  object-position: bottom center;
-  filter: drop-shadow(0 -6px 20px rgba(68, 94, 180, 0.45))
-          drop-shadow(0 4px 10px rgba(194, 195, 233, 0.15));
-  user-select: none;
-  display: block;
-  transition: filter 0.2s;
-}
+
+.header-waifu:hover .waifu-default { opacity: 0; }
+.header-waifu:hover .waifu-hover   { opacity: 1; }
 
 /* ===== NAV ===== */
 .header-nav {
@@ -275,9 +288,9 @@ button { cursor: pointer; font-family: var(--font); border: none; background: no
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-.status-live   { background: rgba(59,165,92,.15);  color: #3ba55c; }
-.status-wip    { background: rgba(250,168,26,.15); color: #faa81a; }
-.status-archived { background: rgba(91,99,138,.15); color: var(--text-dim); }
+.status-live     { background: rgba(59,165,92,.15);  color: #3ba55c; }
+.status-wip      { background: rgba(250,168,26,.15); color: #faa81a; }
+.status-archived { background: rgba(91,99,138,.15);  color: var(--text-dim); }
 .project-tag  { font-size: 12px; color: var(--accent-light); }
 .project-link {
   font-size: 12px;
@@ -313,8 +326,6 @@ button { cursor: pointer; font-family: var(--font); border: none; background: no
 
 /* ==============================================
    MODAL FAQ
-   Layout : [waifu fixe gauche] | [FAQ scrollable droite]
-   Un seul background, pas de séparateur visible
    ============================================== */
 .faq-overlay {
   position: fixed;
@@ -334,17 +345,14 @@ button { cursor: pointer; font-family: var(--font); border: none; background: no
   pointer-events: all;
 }
 
-/* Le modal occupe presque tout l’écran, petit espace autour */
 .faq-modal {
   position: relative;
   display: grid;
-  /* colonne waifu fixe | colonne FAQ flexible */
   grid-template-columns: var(--faq-waifu-w) 1fr;
   background: var(--bg-card);
   border: 1px solid var(--border-hover);
   border-radius: 20px;
   box-shadow: 0 32px 100px rgba(0,0,0,0.7);
-  /* Prend presque toute la taille dispo */
   width:  calc(100vw - 24px);
   height: calc(100vh - 24px);
   max-width:  1400px;
@@ -357,7 +365,7 @@ button { cursor: pointer; font-family: var(--font); border: none; background: no
   transform: translateY(0) scale(1);
 }
 
-/* --- Bouton fermer --- */
+/* Bouton fermer */
 .faq-close {
   position: absolute;
   top: 16px; right: 16px;
@@ -373,16 +381,14 @@ button { cursor: pointer; font-family: var(--font); border: none; background: no
 }
 .faq-close:hover { background: var(--surface2); color: var(--text); }
 
-/* --- Colonne GAUCHE : waifu anchorée en bas, ne scrolle pas --- */
+/* Colonne GAUCHE : waifu ancrée en bas, pas de scroll, même bg */
 .faq-left {
-  /* La colonne ne scrolle pas, la waifu est fixée dans cet espace */
   position: relative;
   overflow: hidden;
-  /* Même bg que le modal — pas de séparateur */
   background: transparent;
+  /* Pas de border-right : même background continu */
 }
 .faq-waifu-wrap {
-  /* Pleine hauteur de la colonne, image anchorée en bas */
   position: absolute;
   inset: 0;
   display: flex;
@@ -391,7 +397,6 @@ button { cursor: pointer; font-family: var(--font); border: none; background: no
   pointer-events: none;
 }
 .faq-waifu {
-  /* L’image remplit la hauteur, ne dépasse pas */
   height: 100%;
   width: 100%;
   object-fit: contain;
@@ -402,15 +407,14 @@ button { cursor: pointer; font-family: var(--font); border: none; background: no
   user-select: none;
 }
 
-/* --- Colonne DROITE : intro + FAQ, scrollable --- */
+/* Colonne DROITE : FAQ scrollable, sans border visible */
 .faq-right {
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 40px 36px 36px;
   overflow-y: auto;
-  /* Ligne de séparation subtile uniquement via un pseudo-élément pour garder le même bg */
-  border-left: 1px solid var(--border);
+  /* Pas de border-left — background unifié */
 }
 
 .faq-intro { flex-shrink: 0; }
@@ -427,7 +431,6 @@ button { cursor: pointer; font-family: var(--font); border: none; background: no
   margin-top: 8px;
 }
 
-/* --- Accordéon FAQ --- */
 .faq-list {
   display: flex;
   flex-direction: column;
@@ -482,15 +485,12 @@ button { cursor: pointer; font-family: var(--font); border: none; background: no
 ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
 /* ===== RESPONSIVE ===== */
-
-/* Tablette paysage */
 @media (max-width: 1024px) {
   :root { --faq-waifu-w: clamp(150px, 24vw, 260px); }
   .project-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
   .faq-right { padding: 32px 28px 28px; }
 }
 
-/* Tablette portrait */
 @media (max-width: 768px) {
   :root {
     --header-h: 64px;
@@ -507,7 +507,6 @@ button { cursor: pointer; font-family: var(--font); border: none; background: no
   .faq-right { padding: 28px 22px 22px; }
 }
 
-/* Mobile large : on passe en colonne, waifu en haut */
 @media (max-width: 600px) {
   :root { --faq-waifu-w: unset; }
   .project-grid { grid-template-columns: 1fr; }
@@ -516,35 +515,28 @@ button { cursor: pointer; font-family: var(--font); border: none; background: no
   .profile-bio { font-size: 13px; }
 
   .faq-modal {
-    /* En colonne : waifu en haut, FAQ en bas */
     grid-template-columns: 1fr;
-    grid-template-rows: 200px 1fr;
+    grid-template-rows: 220px 1fr;
     width: calc(100vw - 12px);
     height: calc(100vh - 12px);
     border-radius: 14px;
   }
   .faq-left {
-    border-left: none;
     border-bottom: 1px solid var(--border);
   }
   .faq-right {
-    border-left: none;
     padding: 20px 18px 18px;
     overflow-y: auto;
   }
-  .faq-waifu {
-    object-position: center center;
-  }
+  .faq-waifu { object-position: center center; }
 }
 
-/* Mobile petit */
 @media (max-width: 460px) {
   .header-nav a { padding: 5px 8px; font-size: 12px; }
   .brand { font-size: 15px; }
   .brand-logo { width: 22px; height: 22px; }
 }
 
-/* Très petit écran */
 @media (max-width: 380px) {
   .header-waifu { display: none; }
   :root { --waifu-overflow: 0px; }
