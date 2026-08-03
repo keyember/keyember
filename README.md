@@ -46,7 +46,7 @@ I enjoy building web applications and exploring the endless possibilities of sof
 ![WIP](https://img.shields.io/badge/🚧%20WIP-B11226?style=for-the-badge&logoColor=white)
 <br>
 
-![No WIP projects](https://img.shields.io/badge/💼%20No%20WIP%20Projects-2A2A2A?style=flat&logo=github&logoColor=white)
+```No WIP project for the moment...```
 
 ---
 
