@@ -21,7 +21,6 @@ async function loadProjects() {
   const grid = document.getElementById('project-grid');
   if (!grid) return;
   try {
-    // cache-bust pour GitHub Pages (CDN)
     const res = await fetch('./projects.json?v=' + Date.now());
     if (!res.ok) throw new Error('fetch failed');
     const projects = await res.json();
@@ -50,10 +49,42 @@ function renderProjects(grid, projects) {
   `).join('');
 }
 
+/* ===== MODAL FAQ ===== */
+function initFaqModal() {
+  const btn     = document.getElementById('waifu-btn');
+  const overlay = document.getElementById('faq-overlay');
+  const close   = document.getElementById('faq-close');
+  if (!btn || !overlay || !close) return;
+
+  function openModal() {
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  btn.addEventListener('click', openModal);
+  close.addEventListener('click', closeModal);
+
+  // Clic sur l'overlay (hors modal) ferme
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeModal();
+  });
+
+  // Touche Escape ferme
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   loadProjects();
+  initFaqModal();
 
-  /* Navigation douce : header links → scroll vers la section */
+  /* Navigation douce */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const id = a.getAttribute('href').slice(1);

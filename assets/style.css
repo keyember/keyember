@@ -25,8 +25,8 @@
   --header-h: 75px;
   --waifu-overflow: 2.2px;
 
-  /* Padding latéral fluide : serre sur mobile, respire sur desktop */
-  --page-px: clamp(16px, 4vw, 64px);
+  /* Padding latéral fluide : petit espace sur les côtés, jamais collé */
+  --page-px: clamp(16px, 3vw, 48px);
 
   --font: "Inter", system-ui, sans-serif;
 }
@@ -72,14 +72,14 @@ button {
   overflow: visible;
 }
 .header-inner {
-  max-width: 1200px;
-  margin: 0 auto;
+  /* Pleine largeur avec espaces latéraux */
+  width: 100%;
+  max-width: 100%;
   height: 100%;
   padding: 0 var(--page-px);
   display: grid;
-  /* brand à gauche | waifu au centre | nav à droite */
   grid-template-columns: 1fr auto 1fr;
-  align-items: center; /* centre verticalement brand, waifu et nav */
+  align-items: center;
 }
 
 /* ===== BRAND ===== */
@@ -92,7 +92,7 @@ button {
   color: var(--text);
   letter-spacing: -0.2px;
   justify-self: start;
-  align-self: center; /* centrage vertical explicite */
+  align-self: center;
 }
 .brand-logo {
   width: 26px;
@@ -100,14 +100,22 @@ button {
   color: var(--accent-light);
 }
 
-/* ===== WAIFU ===== */
+/* ===== WAIFU (bouton cliquable) ===== */
 .header-waifu {
   display: flex;
   justify-content: center;
-  align-items: flex-end; /* image ancrée en bas du header */
+  align-items: flex-end;
   height: 100%;
-  pointer-events: none;
   overflow: visible;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+.header-waifu:hover .waifu-img {
+  filter: drop-shadow(0 -6px 24px rgba(68, 94, 180, 0.75))
+    drop-shadow(0 4px 12px rgba(194, 195, 233, 0.3));
 }
 .waifu-img {
   height: calc(var(--header-h) + var(--waifu-overflow));
@@ -119,6 +127,7 @@ button {
     drop-shadow(0 4px 10px rgba(194, 195, 233, 0.15));
   user-select: none;
   display: block;
+  transition: filter 0.2s;
 }
 
 /* ===== NAV ===== */
@@ -126,7 +135,7 @@ button {
   display: flex;
   gap: 4px;
   justify-self: end;
-  align-self: center; /* centrage vertical explicite */
+  align-self: center;
 }
 .header-nav a {
   padding: 6px 14px;
@@ -143,13 +152,11 @@ button {
   color: var(--text);
 }
 
-/* ===== PAGE ===== */
+/* ===== PAGE (pleine largeur) ===== */
 .page {
   padding-top: calc(var(--header-h) + var(--waifu-overflow) + 28px);
-  /* Pleine largeur avec max-width généreux — le contenu s'étale */
-  max-width: 1200px;
   width: 100%;
-  margin: 0 auto;
+  max-width: 100%;
   padding-left: var(--page-px);
   padding-right: var(--page-px);
   padding-bottom: 80px;
@@ -193,7 +200,7 @@ button {
   align-items: flex-start;
   gap: 18px;
   padding: 0 20px 18px;
-  flex-wrap: wrap; /* wrap sur très petit écran */
+  flex-wrap: wrap;
 }
 .profile-avatar {
   position: relative;
@@ -226,7 +233,7 @@ button {
 .profile-info {
   padding-top: 14px;
   flex: 1;
-  min-width: 0; /* évite l'overflow sur mobile */
+  min-width: 0;
 }
 .profile-info h1 {
   font-size: 19px;
@@ -429,6 +436,161 @@ button {
   color: var(--text-dim);
 }
 
+/* ===== MODAL FAQ ===== */
+.faq-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 14, 30, 0.75);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.faq-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.faq-modal {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background: var(--bg-card);
+  border: 1px solid var(--border-hover);
+  border-radius: 20px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(108,120,194,0.1);
+  max-width: 780px;
+  width: calc(100% - 32px);
+  max-height: calc(100vh - 48px);
+  overflow: hidden;
+  transform: translateY(12px) scale(0.98);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.faq-overlay.open .faq-modal {
+  transform: translateY(0) scale(1);
+}
+
+/* Bouton fermer */
+.faq-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 10;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+}
+.faq-close:hover {
+  background: var(--surface2);
+  color: var(--text);
+}
+
+/* Colonne gauche */
+.faq-left {
+  flex: 1;
+  padding: 32px 28px 28px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.faq-greeting {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+}
+.faq-subtitle {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-top: 6px;
+}
+
+/* Liste FAQ — accordéon */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.faq-item {
+  background: var(--bg-mid);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.faq-item[open] {
+  border-color: var(--border-hover);
+}
+.faq-item summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px 16px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s;
+}
+.faq-item summary:hover {
+  background: var(--surface);
+}
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+/* chevron via pseudo-element */
+.faq-item summary::after {
+  content: '›';
+  font-size: 18px;
+  color: var(--accent-light);
+  transform: rotate(90deg);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+.faq-item[open] summary::after {
+  transform: rotate(270deg);
+}
+.faq-answer {
+  padding: 0 16px 14px;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Colonne droite — image fullbody */
+.faq-right {
+  width: 220px;
+  min-width: 220px;
+  background: linear-gradient(180deg, var(--bg-mid) 0%, var(--bg) 100%);
+  border-left: 1px solid var(--border);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+.faq-waifu {
+  width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  display: block;
+  filter: drop-shadow(0 -8px 30px rgba(68, 94, 180, 0.4));
+}
+
 /* ===== SCROLLBAR ===== */
 ::-webkit-scrollbar {
   width: 6px;
@@ -445,22 +607,15 @@ button {
 }
 
 /* ===== RESPONSIVE ===== */
-
-/* Tablette paysage / petit desktop */
 @media (max-width: 1024px) {
   .project-grid {
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   }
 }
 
-/* Tablette portrait */
 @media (max-width: 768px) {
   :root {
     --header-h: 64px;
-  }
-  .brand span {
-    /* cache le label texte sur tablette si trop serré */
-    display: inline; /* on garde le texte, juste on réduit le gap */
   }
   .header-nav a {
     padding: 5px 10px;
@@ -469,9 +624,12 @@ button {
   .project-grid {
     grid-template-columns: 1fr 1fr;
   }
+  .faq-right {
+    width: 160px;
+    min-width: 160px;
+  }
 }
 
-/* Mobile large */
 @media (max-width: 600px) {
   .project-grid {
     grid-template-columns: 1fr;
@@ -485,9 +643,23 @@ button {
   .profile-bio {
     font-size: 13px;
   }
+  /* Sur mobile : modal en colonne, image en haut */
+  .faq-modal {
+    flex-direction: column-reverse;
+    max-height: 92vh;
+  }
+  .faq-right {
+    width: 100%;
+    min-width: unset;
+    height: 180px;
+    border-left: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .faq-left {
+    padding: 20px 18px 18px;
+  }
 }
 
-/* Mobile petit */
 @media (max-width: 460px) {
   .header-nav a {
     padding: 5px 8px;
@@ -502,7 +674,6 @@ button {
   }
 }
 
-/* Très petit écran : on masque la waifu pour libérer la place */
 @media (max-width: 380px) {
   .header-waifu {
     display: none;
