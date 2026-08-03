@@ -27,7 +27,8 @@
   --page-px: clamp(16px, 3vw, 48px);
   --font: "Inter", system-ui, sans-serif;
 
-  --faq-waifu-w: clamp(180px, 28vw, 340px);
+  /* Colonne waifu plus large pour profiter de tout l'espace */
+  --faq-waifu-w: clamp(220px, 35vw, 480px);
 }
 
 *,
@@ -470,10 +471,9 @@ button {
   border: 1px solid var(--border-hover);
   border-radius: 20px;
   box-shadow: 0 32px 100px rgba(0, 0, 0, 0.7);
+  /* Plein écran moins 24px de marge — aucun max-width pour occuper toute la largeur */
   width: calc(100vw - 24px);
   height: calc(100vh - 24px);
-  max-width: 1400px;
-  max-height: 960px;
   overflow: hidden;
   transform: translateY(14px) scale(0.98);
   transition: transform 0.25s ease;
@@ -503,14 +503,13 @@ button {
   color: var(--text);
 }
 
-/* Colonne GAUCHE : waifu centrée à sa taille naturelle */
+/* Colonne GAUCHE */
 .faq-left {
   position: relative;
   overflow: hidden;
   background: transparent;
 }
 .faq-waifu-wrap {
-  /* Occupe toute la colonne, centre l'image horizontalement et verticalement */
   position: absolute;
   inset: 0;
   display: flex;
@@ -519,7 +518,6 @@ button {
   pointer-events: none;
 }
 .faq-waifu {
-  /* Taille naturelle de l'image, ne dépasse pas la colonne */
   width: auto;
   height: auto;
   max-width: 100%;
@@ -628,7 +626,7 @@ button {
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
   :root {
-    --faq-waifu-w: clamp(150px, 24vw, 260px);
+    --faq-waifu-w: clamp(180px, 30vw, 340px);
   }
   .project-grid {
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -641,7 +639,7 @@ button {
 @media (max-width: 768px) {
   :root {
     --header-h: 64px;
-    --faq-waifu-w: 200px;
+    --faq-waifu-w: 220px;
   }
   .header-nav a {
     padding: 5px 10px;
@@ -653,7 +651,6 @@ button {
   .faq-modal {
     width: calc(100vw - 16px);
     height: calc(100vh - 16px);
-    max-height: unset;
     border-radius: 16px;
   }
   .faq-right {
@@ -680,7 +677,7 @@ button {
 
   .faq-modal {
     grid-template-columns: 1fr;
-    grid-template-rows: 240px 1fr;
+    grid-template-rows: 260px 1fr;
     width: calc(100vw - 12px);
     height: calc(100vh - 12px);
     border-radius: 14px;
