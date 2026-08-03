@@ -1,5 +1,5 @@
 /* ===========================
-   VARIABLES — palette waifu
+   VARIABLES
    =========================== */
 :root {
   --bg: #0e1329;
@@ -24,46 +24,28 @@
 
   --header-h: 75px;
   --waifu-overflow: 2.2px;
-
-  /* Padding latéral fluide : petit espace sur les côtés, jamais collé */
   --page-px: clamp(16px, 3vw, 48px);
-
   --font: "Inter", system-ui, sans-serif;
+
+  /* Largeur colonne waifu dans le modal */
+  --faq-waifu-w: clamp(180px, 28vw, 340px);
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-html {
-  scroll-behavior: smooth;
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 body {
   font-family: var(--font);
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
 }
-a {
-  color: inherit;
-  text-decoration: none;
-}
-button {
-  cursor: pointer;
-  font-family: var(--font);
-  border: none;
-  background: none;
-}
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; font-family: var(--font); border: none; background: none; }
 
 /* ===== HEADER ===== */
 .site-header {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   height: var(--header-h);
   background: rgba(14, 19, 41, 0.88);
   backdrop-filter: blur(16px);
@@ -72,9 +54,7 @@ button {
   overflow: visible;
 }
 .header-inner {
-  /* Pleine largeur avec espaces latéraux */
   width: 100%;
-  max-width: 100%;
   height: 100%;
   padding: 0 var(--page-px);
   display: grid;
@@ -94,13 +74,9 @@ button {
   justify-self: start;
   align-self: center;
 }
-.brand-logo {
-  width: 26px;
-  height: 26px;
-  color: var(--accent-light);
-}
+.brand-logo { width: 26px; height: 26px; color: var(--accent-light); }
 
-/* ===== WAIFU (bouton cliquable) ===== */
+/* ===== WAIFU HEADER ===== */
 .header-waifu {
   display: flex;
   justify-content: center;
@@ -111,11 +87,10 @@ button {
   background: none;
   border: none;
   cursor: pointer;
-  transition: filter 0.2s;
 }
 .header-waifu:hover .waifu-img {
   filter: drop-shadow(0 -6px 24px rgba(68, 94, 180, 0.75))
-    drop-shadow(0 4px 12px rgba(194, 195, 233, 0.3));
+          drop-shadow(0 4px 12px rgba(194, 195, 233, 0.3));
 }
 .waifu-img {
   height: calc(var(--header-h) + var(--waifu-overflow));
@@ -124,7 +99,7 @@ button {
   object-fit: contain;
   object-position: bottom center;
   filter: drop-shadow(0 -6px 20px rgba(68, 94, 180, 0.45))
-    drop-shadow(0 4px 10px rgba(194, 195, 233, 0.15));
+          drop-shadow(0 4px 10px rgba(194, 195, 233, 0.15));
   user-select: none;
   display: block;
   transition: filter 0.2s;
@@ -143,32 +118,22 @@ button {
   font-size: 14px;
   font-weight: 500;
   color: var(--text-muted);
-  transition:
-    background 0.15s,
-    color 0.15s;
+  transition: background 0.15s, color 0.15s;
 }
-.header-nav a:hover {
-  background: var(--bg-card);
-  color: var(--text);
-}
+.header-nav a:hover { background: var(--bg-card); color: var(--text); }
 
-/* ===== PAGE (pleine largeur) ===== */
+/* ===== PAGE ===== */
 .page {
   padding-top: calc(var(--header-h) + var(--waifu-overflow) + 28px);
   width: 100%;
-  max-width: 100%;
   padding-left: var(--page-px);
   padding-right: var(--page-px);
   padding-bottom: 80px;
 }
 
 /* ===== SECTIONS ===== */
-.section {
-  padding-top: 48px;
-}
-.section:first-child {
-  padding-top: 0;
-}
+.section { padding-top: 48px; }
+.section:first-child { padding-top: 0; }
 .section-header {
   margin-bottom: 20px;
   padding-bottom: 12px;
@@ -205,9 +170,7 @@ button {
 .profile-avatar {
   position: relative;
   margin-top: -32px;
-  width: 64px;
-  min-width: 64px;
-  height: 64px;
+  width: 64px; min-width: 64px; height: 64px;
   background: var(--bg-mid);
   border: 3px solid var(--bg-card);
   border-radius: 50%;
@@ -216,25 +179,16 @@ button {
   justify-content: center;
   color: var(--accent-light);
 }
-.profile-avatar svg {
-  width: 38px;
-  height: 38px;
-}
+.profile-avatar svg { width: 38px; height: 38px; }
 .avatar-status {
   position: absolute;
-  bottom: 1px;
-  right: 1px;
-  width: 13px;
-  height: 13px;
+  bottom: 1px; right: 1px;
+  width: 13px; height: 13px;
   background: var(--online);
   border-radius: 50%;
   border: 2px solid var(--bg-card);
 }
-.profile-info {
-  padding-top: 14px;
-  flex: 1;
-  min-width: 0;
-}
+.profile-info { padding-top: 14px; flex: 1; min-width: 0; }
 .profile-info h1 {
   font-size: 19px;
   font-weight: 700;
@@ -252,18 +206,8 @@ button {
   border-radius: 999px;
   letter-spacing: 0.3px;
 }
-.profile-bio {
-  margin-top: 6px;
-  font-size: 13.5px;
-  color: var(--text-muted);
-  line-height: 1.55;
-}
-.profile-tags {
-  margin-top: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
+.profile-bio { margin-top: 6px; font-size: 13.5px; color: var(--text-muted); line-height: 1.55; }
+.profile-tags { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
 .profile-tags span {
   font-size: 12px;
   background: var(--surface);
@@ -272,12 +216,7 @@ button {
   border-radius: 999px;
   border: 1px solid var(--border);
 }
-.profile-cta {
-  display: flex;
-  gap: 8px;
-  padding: 0 20px 18px;
-  flex-wrap: wrap;
-}
+.profile-cta { display: flex; gap: 8px; padding: 0 20px 18px; flex-wrap: wrap; }
 
 /* ===== BUTTONS ===== */
 .btn {
@@ -291,21 +230,14 @@ button {
   transition: filter 0.15s;
   white-space: nowrap;
 }
-.btn:hover {
-  filter: brightness(1.12);
-}
-.btn-primary {
-  background: var(--accent);
-  color: #fff;
-}
+.btn:hover { filter: brightness(1.12); }
+.btn-primary { background: var(--accent); color: #fff; }
 .btn-ghost {
   background: var(--surface);
   color: var(--text-muted);
   border: 1px solid var(--border);
 }
-.btn-ghost:hover {
-  color: var(--text);
-}
+.btn-ghost:hover { color: var(--text); }
 
 /* ===== PROJECT GRID ===== */
 .project-grid {
@@ -321,25 +253,11 @@ button {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transition:
-    border-color 0.2s,
-    box-shadow 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
-.project-card:hover {
-  border-color: var(--border-hover);
-  box-shadow: 0 2px 24px var(--glow);
-}
-.project-card-name {
-  font-size: 14.5px;
-  font-weight: 700;
-  color: var(--text);
-}
-.project-card-desc {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.5;
-  flex: 1;
-}
+.project-card:hover { border-color: var(--border-hover); box-shadow: 0 2px 24px var(--glow); }
+.project-card-name { font-size: 14.5px; font-weight: 700; color: var(--text); }
+.project-card-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; flex: 1; }
 .project-card-footer {
   display: flex;
   align-items: center;
@@ -357,22 +275,10 @@ button {
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-.status-live {
-  background: rgba(59, 165, 92, 0.15);
-  color: #3ba55c;
-}
-.status-wip {
-  background: rgba(250, 168, 26, 0.15);
-  color: #faa81a;
-}
-.status-archived {
-  background: rgba(91, 99, 138, 0.15);
-  color: var(--text-dim);
-}
-.project-tag {
-  font-size: 12px;
-  color: var(--accent-light);
-}
+.status-live   { background: rgba(59,165,92,.15);  color: #3ba55c; }
+.status-wip    { background: rgba(250,168,26,.15); color: #faa81a; }
+.status-archived { background: rgba(91,99,138,.15); color: var(--text-dim); }
+.project-tag  { font-size: 12px; color: var(--accent-light); }
 .project-link {
   font-size: 12px;
   color: var(--accent-pale);
@@ -381,29 +287,12 @@ button {
   gap: 3px;
   transition: color 0.15s;
 }
-.project-link:hover {
-  color: var(--text);
-}
-.loading {
-  color: var(--text-dim);
-  font-size: 14px;
-  padding: 40px 0;
-  text-align: center;
-}
-.empty-state {
-  grid-column: 1/-1;
-  text-align: center;
-  color: var(--text-dim);
-  padding: 50px 0;
-  font-size: 14px;
-}
+.project-link:hover { color: var(--text); }
+.loading { color: var(--text-dim); font-size: 14px; padding: 40px 0; text-align: center; }
+.empty-state { grid-column: 1/-1; text-align: center; color: var(--text-dim); padding: 50px 0; font-size: 14px; }
 
 /* ===== LINKS ===== */
-.links-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
+.links-list { display: flex; flex-direction: column; gap: 8px; }
 .link-card {
   display: flex;
   align-items: center;
@@ -415,28 +304,18 @@ button {
   font-size: 14px;
   font-weight: 500;
   color: var(--text-muted);
-  transition:
-    background 0.15s,
-    border-color 0.2s,
-    color 0.15s;
+  transition: background 0.15s, border-color 0.2s, color 0.15s;
 }
-.link-card:hover {
-  background: var(--bg-card2);
-  border-color: var(--border-hover);
-  color: var(--text);
-}
-.link-card svg:first-child {
-  color: var(--accent-light);
-  flex-shrink: 0;
-}
-.link-card span {
-  flex: 1;
-}
-.link-card .arrow {
-  color: var(--text-dim);
-}
+.link-card:hover { background: var(--bg-card2); border-color: var(--border-hover); color: var(--text); }
+.link-card svg:first-child { color: var(--accent-light); flex-shrink: 0; }
+.link-card span { flex: 1; }
+.link-card .arrow { color: var(--text-dim); }
 
-/* ===== MODAL FAQ ===== */
+/* ==============================================
+   MODAL FAQ
+   Layout : [waifu fixe gauche] | [FAQ scrollable droite]
+   Un seul background, pas de séparateur visible
+   ============================================== */
 .faq-overlay {
   position: fixed;
   inset: 0;
@@ -444,8 +323,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(10, 14, 30, 0.75);
-  backdrop-filter: blur(6px);
+  background: rgba(10, 14, 30, 0.8);
+  backdrop-filter: blur(8px);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.25s ease;
@@ -454,33 +333,36 @@ button {
   opacity: 1;
   pointer-events: all;
 }
+
+/* Le modal occupe presque tout l’écran, petit espace autour */
 .faq-modal {
   position: relative;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  /* colonne waifu fixe | colonne FAQ flexible */
+  grid-template-columns: var(--faq-waifu-w) 1fr;
   background: var(--bg-card);
   border: 1px solid var(--border-hover);
   border-radius: 20px;
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(108,120,194,0.1);
-  max-width: 780px;
-  width: calc(100% - 32px);
-  max-height: calc(100vh - 48px);
+  box-shadow: 0 32px 100px rgba(0,0,0,0.7);
+  /* Prend presque toute la taille dispo */
+  width:  calc(100vw - 24px);
+  height: calc(100vh - 24px);
+  max-width:  1400px;
+  max-height: 960px;
   overflow: hidden;
-  transform: translateY(12px) scale(0.98);
-  transition: transform 0.25s ease, opacity 0.25s ease;
+  transform: translateY(14px) scale(0.98);
+  transition: transform 0.25s ease;
 }
 .faq-overlay.open .faq-modal {
   transform: translateY(0) scale(1);
 }
 
-/* Bouton fermer */
+/* --- Bouton fermer --- */
 .faq-close {
   position: absolute;
-  top: 14px;
-  right: 14px;
-  z-index: 10;
-  width: 32px;
-  height: 32px;
+  top: 16px; right: 16px;
+  z-index: 20;
+  width: 34px; height: 34px;
   border-radius: 50%;
   background: var(--surface);
   color: var(--text-muted);
@@ -489,38 +371,68 @@ button {
   justify-content: center;
   transition: background 0.15s, color 0.15s;
 }
-.faq-close:hover {
-  background: var(--surface2);
-  color: var(--text);
+.faq-close:hover { background: var(--surface2); color: var(--text); }
+
+/* --- Colonne GAUCHE : waifu anchorée en bas, ne scrolle pas --- */
+.faq-left {
+  /* La colonne ne scrolle pas, la waifu est fixée dans cet espace */
+  position: relative;
+  overflow: hidden;
+  /* Même bg que le modal — pas de séparateur */
+  background: transparent;
+}
+.faq-waifu-wrap {
+  /* Pleine hauteur de la colonne, image anchorée en bas */
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+}
+.faq-waifu {
+  /* L’image remplit la hauteur, ne dépasse pas */
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  display: block;
+  filter: drop-shadow(0 -12px 40px rgba(68,94,180,0.45))
+          drop-shadow(4px 0 20px rgba(68,94,180,0.2));
+  user-select: none;
 }
 
-/* Colonne gauche */
-.faq-left {
-  flex: 1;
-  padding: 32px 28px 28px;
-  overflow-y: auto;
+/* --- Colonne DROITE : intro + FAQ, scrollable --- */
+.faq-right {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding: 40px 36px 36px;
+  overflow-y: auto;
+  /* Ligne de séparation subtile uniquement via un pseudo-élément pour garder le même bg */
+  border-left: 1px solid var(--border);
 }
 
+.faq-intro { flex-shrink: 0; }
 .faq-greeting {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--text);
+  line-height: 1.3;
 }
 .faq-subtitle {
-  font-size: 13.5px;
+  font-size: 14px;
   color: var(--text-muted);
-  line-height: 1.55;
-  margin-top: 6px;
+  line-height: 1.6;
+  margin-top: 8px;
 }
 
-/* Liste FAQ — accordéon */
+/* --- Accordéon FAQ --- */
 .faq-list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
+  flex-shrink: 0;
 }
 .faq-item {
   background: var(--bg-mid);
@@ -529,159 +441,112 @@ button {
   overflow: hidden;
   transition: border-color 0.2s;
 }
-.faq-item[open] {
-  border-color: var(--border-hover);
-}
+.faq-item[open] { border-color: var(--border-hover); }
 .faq-item summary {
   list-style: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 13px 16px;
-  font-size: 13.5px;
+  padding: 14px 18px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--text);
   cursor: pointer;
   user-select: none;
   transition: background 0.15s;
 }
-.faq-item summary:hover {
-  background: var(--surface);
-}
-.faq-item summary::-webkit-details-marker {
-  display: none;
-}
-/* chevron via pseudo-element */
+.faq-item summary:hover { background: var(--surface); }
+.faq-item summary::-webkit-details-marker { display: none; }
 .faq-item summary::after {
   content: '›';
-  font-size: 18px;
+  font-size: 20px;
   color: var(--accent-light);
   transform: rotate(90deg);
   transition: transform 0.2s;
   flex-shrink: 0;
+  line-height: 1;
 }
-.faq-item[open] summary::after {
-  transform: rotate(270deg);
-}
+.faq-item[open] summary::after { transform: rotate(270deg); }
 .faq-answer {
-  padding: 0 16px 14px;
-  font-size: 13px;
+  padding: 2px 18px 16px;
+  font-size: 13.5px;
   color: var(--text-muted);
-  line-height: 1.6;
-}
-
-/* Colonne droite — image fullbody */
-.faq-right {
-  width: 220px;
-  min-width: 220px;
-  background: linear-gradient(180deg, var(--bg-mid) 0%, var(--bg) 100%);
-  border-left: 1px solid var(--border);
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  overflow: hidden;
-}
-.faq-waifu {
-  width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  object-position: bottom center;
-  display: block;
-  filter: drop-shadow(0 -8px 30px rgba(68, 94, 180, 0.4));
+  line-height: 1.65;
 }
 
 /* ===== SCROLLBAR ===== */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: var(--surface2);
-  border-radius: 999px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent);
-}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
 /* ===== RESPONSIVE ===== */
+
+/* Tablette paysage */
 @media (max-width: 1024px) {
-  .project-grid {
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  }
+  :root { --faq-waifu-w: clamp(150px, 24vw, 260px); }
+  .project-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+  .faq-right { padding: 32px 28px 28px; }
 }
 
+/* Tablette portrait */
 @media (max-width: 768px) {
   :root {
     --header-h: 64px;
+    --faq-waifu-w: 200px;
   }
-  .header-nav a {
-    padding: 5px 10px;
-    font-size: 13px;
+  .header-nav a { padding: 5px 10px; font-size: 13px; }
+  .project-grid { grid-template-columns: 1fr 1fr; }
+  .faq-modal {
+    width: calc(100vw - 16px);
+    height: calc(100vh - 16px);
+    max-height: unset;
+    border-radius: 16px;
   }
-  .project-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .faq-right {
-    width: 160px;
-    min-width: 160px;
-  }
+  .faq-right { padding: 28px 22px 22px; }
 }
 
+/* Mobile large : on passe en colonne, waifu en haut */
 @media (max-width: 600px) {
-  .project-grid {
-    grid-template-columns: 1fr;
-  }
-  .profile-banner {
-    height: 54px;
-  }
-  .profile-info h1 {
-    font-size: 16px;
-  }
-  .profile-bio {
-    font-size: 13px;
-  }
-  /* Sur mobile : modal en colonne, image en haut */
+  :root { --faq-waifu-w: unset; }
+  .project-grid { grid-template-columns: 1fr; }
+  .profile-banner { height: 54px; }
+  .profile-info h1 { font-size: 16px; }
+  .profile-bio { font-size: 13px; }
+
   .faq-modal {
-    flex-direction: column-reverse;
-    max-height: 92vh;
+    /* En colonne : waifu en haut, FAQ en bas */
+    grid-template-columns: 1fr;
+    grid-template-rows: 200px 1fr;
+    width: calc(100vw - 12px);
+    height: calc(100vh - 12px);
+    border-radius: 14px;
   }
-  .faq-right {
-    width: 100%;
-    min-width: unset;
-    height: 180px;
+  .faq-left {
     border-left: none;
     border-bottom: 1px solid var(--border);
   }
-  .faq-left {
+  .faq-right {
+    border-left: none;
     padding: 20px 18px 18px;
+    overflow-y: auto;
+  }
+  .faq-waifu {
+    object-position: center center;
   }
 }
 
+/* Mobile petit */
 @media (max-width: 460px) {
-  .header-nav a {
-    padding: 5px 8px;
-    font-size: 12px;
-  }
-  .brand {
-    font-size: 15px;
-  }
-  .brand-logo {
-    width: 22px;
-    height: 22px;
-  }
+  .header-nav a { padding: 5px 8px; font-size: 12px; }
+  .brand { font-size: 15px; }
+  .brand-logo { width: 22px; height: 22px; }
 }
 
+/* Très petit écran */
 @media (max-width: 380px) {
-  .header-waifu {
-    display: none;
-  }
-  :root {
-    --waifu-overflow: 0px;
-  }
-  .header-inner {
-    grid-template-columns: 1fr 1fr;
-  }
+  .header-waifu { display: none; }
+  :root { --waifu-overflow: 0px; }
+  .header-inner { grid-template-columns: 1fr 1fr; }
 }
